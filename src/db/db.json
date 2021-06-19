@@ -1,0 +1,66 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Guajolotas"
+        },
+        {
+            "id": 2,
+            "name": "Bebidas"
+        },
+        {
+            "id": 3,
+            "name": "Tamales"
+        }
+    ],
+    "foods": [
+        {
+            "id": 1,
+            "category": 1,
+            "price": 25,
+            "image_main": "https://i.imgur.com/72IDQML.png",
+            "flavor": "Verde",
+            "image_flavor": "flavors/verde.png"
+        },
+        {
+            "id": 2,
+            "category": 1,
+            "price": 25,
+            "image_main": "https://i.imgur.com/fC4XfhL.png",
+            "flavor": "Mole",
+            "image_flavor": "flavors/mole.png"
+        },
+        {
+            "id": 3,
+            "category": 1,
+            "price": 25,
+            "image_main": "https://i.imgur.com/y4GWAwB.png",
+            "flavor": "Guayaba",
+            "image_flavor": "flavors/guayaba.png"
+        },
+        {
+            "id": 4,
+            "category": 1,
+            "price": 25,
+            "image_main": "https://i.imgur.com/gVLbrun.png",
+            "flavor": "Piña",
+            "image_flavor": "flavors/piña.png"
+        },
+        {
+            "id": 5,
+            "category": 1,
+            "price": 25,
+            "image_main": "https://i.imgur.com/FSQeCzG.png",
+            "flavor": "Pasas",
+            "image_flavor": "flavors/pasas.png"
+        },
+        {
+            "id": 6,
+            "category": 1,
+            "price": 25,
+            "image_main": "https://i.imgur.com/FSQeCzG.png",
+            "flavor": "Rajas",
+            "image_flavor": "flavors/rajas.png"
+        }
+    ]
+}
