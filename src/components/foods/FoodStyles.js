@@ -56,4 +56,4 @@ const TextPriceFood = styled.p`
     margin: 8px 0px;
 `;
 
-export const PriceFood = ( { price } ) => <TextPriceFood> { price } </TextPriceFood>;
+export const PriceFood = ( { price } ) => <TextPriceFood> { `$${price} MXN` } </TextPriceFood>;
