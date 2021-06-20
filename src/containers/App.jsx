@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { createGlobalStyle } from "styled-components";
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Foods from '../components/Foods';
+import Data from '../db/Data';
+
+const data = new Data();
 
 const GlobalStyle = createGlobalStyle`
     body{
@@ -15,18 +18,48 @@ const GlobalStyle = createGlobalStyle`
     
 `;
 
-const App = () => {
+class App extends Component {
 
-    return (
-        <>
-            <GlobalStyle />
-            <Header />
-            <Search />
-            <Categories />
-            <Foods />
-        </>
-    );
+    constructor() {
+        super();
+        this.state = {
+            categoryId: 1,
+            foods: []
+        };
+        this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    }
 
+    async getFoods() {
+        const listFoods = await data.getFoodsByCategory(this.state.categoryId);
+        this.setState({ foods: listFoods });
+    }
+
+    componentDidMount() {
+        this.getFoods();
+    }
+
+    async handleCategoryChange(categoryId) {
+        //Wait until set State
+        await this.setState({categoryId: categoryId});
+        this.getFoods();
+    }
+
+    render() {
+        return (
+            <>
+                <GlobalStyle />
+                <Header />
+                <Search />
+                <Categories 
+                    onCategoryChange = {this.handleCategoryChange}
+                />
+                <Foods 
+                    foods = {this.state.foods}
+                />
+            </>
+        );
+    }
 }
+
 
 export default App;

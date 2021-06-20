@@ -1,10 +1,16 @@
 import React from 'react';
 import { ContainerFood, ImageFoodMain, DescriptionFood, FlavorFood, PriceFood } from './FoodStyles';
 
+const onClickListener = () => {
+    console.log('object')
+}
+
 const Food = ( {food} ) => {
 
     return (
-        <ContainerFood>
+        <ContainerFood
+            onClick= {onClickListener}
+        >
             <ImageFoodMain 
                 src= {food.image_main}
                 alt= {food.flavor}
