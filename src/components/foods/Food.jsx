@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContainerFood, ImageFoodMain, DescriptionFood, FlavorFood, PriceFood } from './FoodStyles';
 
-const onClickListener = () => {
+const handleClick = () => {
     console.log('object')
 }
 
@@ -9,7 +9,7 @@ const Food = ( {food} ) => {
 
     return (
         <ContainerFood
-            onClick= {onClickListener}
+            onClick= {handleClick}
         >
             <ImageFoodMain 
                 src= {food.image_main}
