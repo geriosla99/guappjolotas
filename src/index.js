@@ -11,7 +11,7 @@ class Root extends Component{
           <BrowserRouter basename={'/'}>
               <Switch>
                   <Route exact path={`/`} component={App}/>
-                  <Route exact path={`/select/:id`} component={SelectFood}/>
+                  <Route exact path={`/:category/:food`} component={SelectFood}/>
               </Switch>
           </BrowserRouter>
       )

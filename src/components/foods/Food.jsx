@@ -9,7 +9,7 @@ const handleClick = () => {
 const Food = ( {food} ) => {
 
     return (
-        <Link to={"/select/"+food.id} style={{textDecoration:'none'}}>
+        <Link to={`/${food.category}/${food.flavor}`} style={{textDecoration:'none'}}>
         <ContainerFood
             onClick= {handleClick}
         >
