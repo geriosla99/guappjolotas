@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components';
 
 const textColorSelected = "#FA4A0C";
@@ -16,4 +16,31 @@ color: ${props => props.status ? textColorSelected : textColor};
 &:hover{
     cursor: pointer;
 }
-`
+`;
+
+export class Category extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: this.props.statusCategory
+        }
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        this.props.onCategoryChange(e.target.id);
+        this.setState({status: true});
+    }
+
+    render() {
+        return (
+            <CategoryStyle
+                id= {this.props.category.id}
+                onClick= {this.handleClick}
+                status = {this.state.status}
+            >{this.props.category.name}</CategoryStyle>
+        )
+    }
+
+}

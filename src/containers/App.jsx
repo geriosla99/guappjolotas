@@ -49,7 +49,6 @@ class App extends Component {
         //Wait until set State
         await this.setState({categoryId: categoryId});
         this.getFoods();
-        
     }
 
     render() {
@@ -61,7 +60,6 @@ class App extends Component {
                 <Categories 
                     onCategoryChange = {this.handleCategoryChange}
                     categories = {this.state.categories}
-                    categoryStatus = {this.state.categoryStatus}
                 />
                 <Foods 
                     foods = {this.state.foods}
