@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ContainerFood, ImageFoodMain, DescriptionFood, FlavorFood, PriceFood } from './FoodStyles';
 
 const handleClick = () => {
@@ -8,6 +9,7 @@ const handleClick = () => {
 const Food = ( {food} ) => {
 
     return (
+        <Link to={`/${food.category}/${food.flavor}`} style={{textDecoration:'none'}}>
         <ContainerFood
             onClick= {handleClick}
         >
@@ -24,6 +26,7 @@ const Food = ( {food} ) => {
                 />
             </DescriptionFood>
         </ContainerFood>
+        </Link>
     )
 
 }
