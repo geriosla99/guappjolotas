@@ -24,7 +24,8 @@ class App extends Component {
         super();
         this.state = {
             categoryId: 1,
-            foods: []
+            foods: [],
+            categories: [],
         };
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
     }
@@ -34,14 +35,21 @@ class App extends Component {
         this.setState({ foods: listFoods });
     }
 
+    async getCategories() {
+        const listCategories = await data.getCategories();
+        this.setState({categories: listCategories});
+    }
+
     componentDidMount() {
         this.getFoods();
+        this.getCategories();
     }
 
     async handleCategoryChange(categoryId) {
         //Wait until set State
         await this.setState({categoryId: categoryId});
         this.getFoods();
+        
     }
 
     render() {
@@ -52,6 +60,8 @@ class App extends Component {
                 <Search />
                 <Categories 
                     onCategoryChange = {this.handleCategoryChange}
+                    categories = {this.state.categories}
+                    categoryStatus = {this.state.categoryStatus}
                 />
                 <Foods 
                     foods = {this.state.foods}
