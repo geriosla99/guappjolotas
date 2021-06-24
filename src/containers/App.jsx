@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import { createGlobalStyle } from "styled-components";
-import Header from '../components/Header';
-import Search from '../components/Search';
-import Categories from '../components/Categories';
-import Foods from '../components/Foods';
-import Data from '../db/Data';
+import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
+import Categories from "../components/Categories";
+import Foods from "../components/Foods";
+import Data from "../db/Data";
 
 const data = new Data();
 
@@ -19,55 +19,48 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      categoryId: 1,
+      foods: [],
+      categories: [],
+    };
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
+  }
 
-    constructor() {
-        super();
-        this.state = {
-            categoryId: 1,
-            foods: [],
-            categories: [],
-        };
-        this.handleCategoryChange = this.handleCategoryChange.bind(this);
-    }
+  async getFoods() {
+    const listFoods = await data.getFoodsByCategory(this.state.categoryId);
+    this.setState({ foods: listFoods });
+  }
 
-    async getFoods() {
-        const listFoods = await data.getFoodsByCategory(this.state.categoryId);
-        this.setState({ foods: listFoods });
-    }
+  async getCategories() {
+    const listCategories = await data.getCategories();
+    this.setState({ categories: listCategories });
+  }
 
-    async getCategories() {
-        const listCategories = await data.getCategories();
-        this.setState({categories: listCategories});
-    }
+  componentDidMount() {
+    this.getFoods();
+    this.getCategories();
+  }
 
-    componentDidMount() {
-        this.getFoods();
-        this.getCategories();
-    }
+  async handleCategoryChange(categoryId) {
+    //Wait until set State
+    await this.setState({ categoryId: categoryId });
+    this.getFoods();
+  }
 
-    async handleCategoryChange(categoryId) {
-        //Wait until set State
-        await this.setState({categoryId: categoryId});
-        this.getFoods();
-    }
-
-    render() {
-        return (
-            <>
-                <GlobalStyle />
-                <Header />
-                <Search />
-                <Categories 
-                    onCategoryChange = {this.handleCategoryChange}
-                    categories = {this.state.categories}
-                />
-                <Foods 
-                    foods = {this.state.foods}
-                />
-            </>
-        );
-    }
+  render() {
+    return (
+      <>
+        <GlobalStyle />
+        <Header />
+        <SearchBar />
+        <Categories onCategoryChange={this.handleCategoryChange} categories={this.state.categories} />
+        <Foods foods={this.state.foods} />
+      </>
+    );
+  }
 }
-
 
 export default App;
