@@ -1,0 +1,20 @@
+.Logopages{
+    width: 30%;
+    float: left;
+}
+
+.TextPages{
+    font-weight: bold;
+    font-size: 10vw;
+    margin-top: 25vw;
+}
+
+.ShoppingCar{
+    float: right;
+    margin: 9vw;
+}
+
+.TopImages{
+    margin: 5vw;
+    padding: 10vw;
+}
