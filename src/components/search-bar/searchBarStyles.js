@@ -10,6 +10,7 @@ export const ContainerSearchBar = styled.div`
 `
 export const SearchIcon = styled.img`
   height: 18px;
+  margin-right: 10px;
 `
 
 export const SearchInput = styled.input`
@@ -19,4 +20,5 @@ export const SearchInput = styled.input`
   color: #9A9A9D;
   border: none;
   background: transparent;
+  outline: none;
 `
