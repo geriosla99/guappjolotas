@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {CategoryStyle} from './categories/CategoriesStyles'
+import {CategoryStyle, Container} from './categories/CategoriesStyles'
 
 class Categories extends Component {
 
@@ -11,6 +11,7 @@ class Categories extends Component {
         })
         this.state = status;
         this.handleClick = this.handleClick.bind(this);
+        this.state.category_status_1 = true;
     }
 
     handleClick(e) {
@@ -29,23 +30,27 @@ class Categories extends Component {
     }
 
     render() {
-        
-        return (
-            <div> 
-                {
-                    this.props.categories.map((category,index) => {
-                    return (
-                        <CategoryStyle
-                        key = {index}
-                        id = {category.id}
-                        onClick = {this.handleClick}
-                        status = {this.state[`category_status_${category.id}`]}
-                        >{category.name}</CategoryStyle>                   
-                    )                 
-                    })
-                }
-            </div>
-        )
+
+        if(this.props.visible) {
+            return (
+                <Container> 
+                    {
+                        this.props.categories.map((category,index) => {
+                        return (
+                            <CategoryStyle
+                            key = {index}
+                            id = {category.id}
+                            onClick = {this.handleClick}
+                            status = {this.state[`category_status_${category.id}`]}
+                            >{category.name}</CategoryStyle>                   
+                        )                 
+                        })
+                    }
+                </Container>
+            )
+        }else {
+            return (null)
+        }
     }    
 }
 

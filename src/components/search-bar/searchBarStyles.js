@@ -11,7 +11,9 @@ const moveUp = keyframes`
 `;
 
 export const ContainerSearchBar = styled.div`
-  background: #E7E7E7;
+  width: ${props => props.status ? "100%" : "80%"};
+  box-sizing: border-box;
+  background-color: #E7E7E7;
   border-radius: 30px;
   padding: 20px 28px;
   display: flex;
@@ -35,3 +37,10 @@ export const SearchInput = styled.input`
   background: transparent;
   outline: none;
 `
+
+export const BtnCancel = styled.span`
+  font-size: 17px;
+  &:hover {
+    cursor: pointer;
+  }
+`;

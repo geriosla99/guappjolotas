@@ -1,13 +1,42 @@
-import React from "react";
-import { ContainerSearchBar, SearchInput, SearchIcon } from "./search-bar/searchBarStyles";
+import React, { Component } from "react";
+import { ContainerSearchBar, SearchInput, SearchIcon, BtnCancel } from "./search-bar/searchBarStyles";
+import SearchEmpty from "./SearchEmpty";
 
-const SearchBar = () => {
-  return (
-    <ContainerSearchBar>
-      <SearchIcon src="https://i.imgur.com/tB9uhDh.png" alt="Icono de búsqueda" />
-      <SearchInput type="text" placeholder="Sabor de guajolota, bebida..." />
-    </ContainerSearchBar>
-  );
+class SearchBar extends Component {
+
+  handleChange =(e) => {
+    this.props.changeValue(e.target.value);
+    this.props.searchFood();
+  }
+
+  handleClick = () => {
+    this.props.changeVisible(false)
+  }
+
+  render() {
+    
+    return (
+      <>
+        <ContainerSearchBar status={this.props.visible}>
+          <SearchIcon src="https://i.imgur.com/tB9uhDh.png" alt="Icono de búsqueda" />
+          <SearchInput
+            onChange= {this.handleChange}
+            onClick= {this.handleClick}
+            value = {this.props.valueSearch}
+            type="text"
+            placeholder="Sabor de guajolota, bebida..." 
+          />
+          
+          {
+            this.props.visible === false && <BtnCancel onClick={() => this.props.changeVisible(true)}>Cancelar</BtnCancel>
+          }
+        </ContainerSearchBar>
+        {
+          this.props.visible === false && this.props.visibleMagnify === true ? <SearchEmpty image = "https://i.imgur.com/aGCaGFj.png" alt = "Búsqueda" text= {this.props.textSearch}/> : ""
+        }
+      </>
+    )
+  };
 };
 
 export default SearchBar;

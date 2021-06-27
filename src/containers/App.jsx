@@ -25,16 +25,21 @@ class App extends Component {
       categoryId: 1,
       foods: [],
       categories: [],
+      visible: true,
+      foodVisible: false,
+      valueSearch: "",
+      textSearch: "Realiza una búsqueda",
+      visibleMagnify: false
     };
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
   }
 
-  async getFoods() {
+  getFoods = async () => {
     const listFoods = await data.getFoodsByCategory(this.state.categoryId);
     this.setState({ foods: listFoods });
   }
 
-  async getCategories() {
+  getCategories = async () => {
     const listCategories = await data.getCategories();
     this.setState({ categories: listCategories });
   }
@@ -51,14 +56,62 @@ class App extends Component {
     });
   }
 
+  changeVisible = (status) => {
+    this.setState({
+      visible: status,
+      foodVisible: status,
+      categoryId: 1,
+      valueSearch: "",
+      textSearch: "Realiza una búsqueda",
+      visibleMagnify: true
+    }, () => {
+      this.getFoods();
+    })
+  }
+
+  changeValue = (value) => {
+    this.setState({valueSearch: value})
+  }
+
+  searchFood = async () => {
+    const listFoods = await data.getFoods();
+    const filter = listFoods.filter((food) => food.flavor.toLowerCase().includes(this.state.valueSearch.toLowerCase()))
+    this.setState({foods: filter, foodVisible: true}, () => {
+      if(this.state.foods.length === 0) {
+        this.setState({textSearch: "No hay Resultados"})
+        this.setState({visibleMagnify: true})
+      }else {
+        this.setState({visibleMagnify: false})
+      }
+    })
+  }
+
   render() {
     return (
       <>
         <GlobalStyle />
-        <Header />
-        <SearchBar />
-        <Categories onCategoryChange={this.handleCategoryChange} categories={this.state.categories} />
-        <Foods foods={this.state.foods} />
+        <Header 
+          visible={this.state.visible}
+        />
+        <SearchBar
+          visible={this.state.visible}
+          changeVisible = {this.changeVisible}
+          searchFood = {this.searchFood}
+          valueSearch = {this.state.valueSearch}
+          changeValue = {this.changeValue}
+          textSearch = {this.state.textSearch}
+          visibleMagnify = {this.state.visibleMagnify}
+        />
+        <Categories 
+          visible={this.state.visible}
+          onCategoryChange={this.handleCategoryChange} 
+          categories={this.state.categories} 
+        />
+        <Foods 
+          foodVisible = {this.state.foodVisible}
+          visible={this.state.visible}
+          foods={this.state.foods} 
+        />
       </>
     );
   }

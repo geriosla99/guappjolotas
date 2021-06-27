@@ -21,3 +21,12 @@ export const CategoryStyle = styled.span`
         cursor: pointer;
 }
 `;
+
+export const Container = styled.div`
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 500px;
+`;
