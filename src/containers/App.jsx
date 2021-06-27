@@ -46,8 +46,9 @@ class App extends Component {
 
   async handleCategoryChange(categoryId) {
     //Wait until set State
-    await this.setState({ categoryId: categoryId });
-    this.getFoods();
+    this.setState({ categoryId: categoryId }, () => {
+      this.getFoods();
+    });
   }
 
   render() {

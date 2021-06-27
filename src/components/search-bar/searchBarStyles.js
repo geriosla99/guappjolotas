@@ -1,5 +1,14 @@
-import React from 'react'
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+
+const moveUp = keyframes`
+  from {
+    transform: translate(10px);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 export const ContainerSearchBar = styled.div`
   background: #E7E7E7;
@@ -7,6 +16,10 @@ export const ContainerSearchBar = styled.div`
   padding: 20px 28px;
   display: flex;
   align-items: center;
+  //animation: ${moveUp} 2s linear infinite;
+  &:focus {
+    background-color: red;
+  }
 `
 export const SearchIcon = styled.img`
   height: 18px;

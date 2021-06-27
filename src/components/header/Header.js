@@ -1,23 +1,23 @@
-import React from 'react'
 import styled from 'styled-components'
 
-const Logopages = styled.img`
-    width: 30%;
-    float: left;
+export const Logopages = styled.img`
+    width: 64px;
+    height: 64px
 `
 
-const TextPages = styled.h1`
+export const TextPages = styled.h1`
     font-weight: bold;
-    font-size: 10vw;
-    margin-top: 25vw;
+    font-size: 34px;
 `
 
-const ShoppingCar = styled.img`
-    float: right;
-    margin: 9vw;
+export const ShoppingCar = styled.img`
+    width: 24px;
+    height: 24px;
 `
 
-const TopImages = styled.span`
-    margin: 5vw;
-    padding: 10vw;
+export const TopImages = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 `
