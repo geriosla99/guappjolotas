@@ -11,7 +11,8 @@ export const ContainerFood = styled.div`
     background: #FFFFFF;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
     border-radius: 20px;
-    margin: 8px 0;
+    margin: 8px auto;
+    max-width: 700px;
 `;
 
 export const ImageFoodMain = styled.img`
@@ -42,7 +43,7 @@ const TextFlavorFood = styled.p`
     margin: 8px 0px;
 `;
 
-export const FlavorFood = ( { flavor } ) => <TextFlavorFood> { flavor } </TextFlavorFood>;
+export const FlavorFood = ({ flavor }) => <TextFlavorFood> {flavor} </TextFlavorFood>;
 
 const TextPriceFood = styled.p`
     font-style: normal;
@@ -56,4 +57,4 @@ const TextPriceFood = styled.p`
     margin: 8px 0px;
 `;
 
-export const PriceFood = ( { price } ) => <TextPriceFood> { `$${price} MXN` } </TextPriceFood>;
+export const PriceFood = ({ price }) => <TextPriceFood> {`$${price} MXN`} </TextPriceFood>;
