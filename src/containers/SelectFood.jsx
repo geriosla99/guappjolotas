@@ -1,19 +1,48 @@
 import React, {Component} from 'react';
 import { withRouter } from "react-router";
+import { createGlobalStyle } from "styled-components";
+import Data from "../db/Data";
+import SliderFoods from '../components/SliderFoods';
+
+const data = new Data();
+
+const GlobalStyle = createGlobalStyle`
+    body{
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #F2F2F2;
+    }
+    
+`;
 
 class SelectFood extends Component {
 
     constructor(props){
         super(props);
-        this.category = this.props.match.params.category;
         this.food = this.props.match.params.food;
+        this.state = {
+            categoryId: this.props.match.params.category,
+            foods: []
+        }
+    }
+
+    componentDidMount() {
+        this.getFoods();
+    }
+
+    getFoods = async () => {
+        const listFoods = await data.getFoodsByCategory(this.state.categoryId);
+        this.setState({ foods: listFoods });
     }
     
     render() {
         return (
             <>
-            <h1>Categoria: {this.category}</h1>
-            <h1>Comida: {this.food}</h1>
+                <GlobalStyle />
+                <SliderFoods 
+                    foods= {this.state.foods}
+                />
             </>
         )
     }

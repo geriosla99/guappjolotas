@@ -20,7 +20,7 @@
             "price": 25,
             "image_main": "https://i.imgur.com/72IDQML.png",
             "flavor": "Verde",
-            "image_flavor": "flavors/verde.png"
+            "image_flavor": "https://i.imgur.com/frXcfSU.png"
         },
         {
             "id": 2,
@@ -28,7 +28,7 @@
             "price": 25,
             "image_main": "https://i.imgur.com/fC4XfhL.png",
             "flavor": "Mole",
-            "image_flavor": "flavors/mole.png"
+            "image_flavor": "https://i.imgur.com/0svGkDj.png"
         },
         {
             "id": 3,
@@ -36,7 +36,7 @@
             "price": 25,
             "image_main": "https://i.imgur.com/y4GWAwB.png",
             "flavor": "Guayaba",
-            "image_flavor": "flavors/guayaba.png"
+            "image_flavor": "https://i.imgur.com/RkIMVO2.png"
         },
         {
             "id": 4,
@@ -44,7 +44,7 @@
             "price": 25,
             "image_main": "https://i.imgur.com/gVLbrun.png",
             "flavor": "Piña",
-            "image_flavor": "flavors/piña.png"
+            "image_flavor": "https://i.imgur.com/HcoeEKS.png"
         },
         {
             "id": 5,
@@ -52,7 +52,7 @@
             "price": 25,
             "image_main": "https://i.imgur.com/FSQeCzG.png",
             "flavor": "Pasas",
-            "image_flavor": "flavors/pasas.png"
+            "image_flavor": "https://i.imgur.com/vBY20y1.png"
         },
         {
             "id": 6,
@@ -60,7 +60,7 @@
             "price": 25,
             "image_main": "https://i.imgur.com/FSQeCzG.png",
             "flavor": "Rajas",
-            "image_flavor": "flavors/rajas.png"
+            "image_flavor": "https://i.imgur.com/OlKuOLc.png"
         },
         {
             "id": 7,
@@ -68,7 +68,7 @@
             "price": 12,
             "image_main": "https://i.imgur.com/CzKtqn5.png",
             "flavor": "Champurrado",
-            "image_flavor": "flavors/rajas.png"
+            "image_flavor": "https://i.imgur.com/tzBcubB.png"
         },
         {
             "id": 8,
@@ -76,7 +76,7 @@
             "price": 12,
             "image_main": "https://i.imgur.com/g5KyAxl.png",
             "flavor": "Atole de Arroz con Leche",
-            "image_flavor": "flavors/rajas.png"
+            "image_flavor": "https://i.imgur.com/k2kC4eK.png"
         },
         {
             "id": 9,
@@ -84,7 +84,7 @@
             "price": 12,
             "image_main": "https://i.imgur.com/mntS8Ce.png",
             "flavor": "Chocolate Caliente",
-            "image_flavor": "flavors/rajas.png"
+            "image_flavor": "https://i.imgur.com/6RfEvBF.png"
         },
         {
             "id": 10,
@@ -92,7 +92,7 @@
             "price": 12,
             "image_main": "https://i.imgur.com/cCRx6lv.png",
             "flavor": "Café Negro",
-            "image_flavor": "flavors/rajas.png"
+            "image_flavor": "https://i.imgur.com/MaQFxPB.png"
         },
         {
             "id": 11,
@@ -100,7 +100,7 @@
             "price": 14,
             "image_main": "https://i.imgur.com/BKBuUo5.png",
             "flavor": "Tamal Verde",
-            "image_flavor": "flavors/verde.png"
+            "image_flavor": "https://i.imgur.com/frXcfSU.png"
         },
         {
             "id": 12,
@@ -108,7 +108,7 @@
             "price": 14,
             "image_main": "https://i.imgur.com/6PlLg0O.png",
             "flavor": "Tamal de Mole",
-            "image_flavor": "flavors/mole.png"
+            "image_flavor": "https://i.imgur.com/0svGkDj.png"
         },
         {
             "id": 13,
@@ -116,7 +116,7 @@
             "price": 14,
             "image_main": "https://i.imgur.com/LFtvCxy.png",
             "flavor": "Tamal de Guayaba",
-            "image_flavor": "flavors/guayaba.png"
+            "image_flavor": "https://i.imgur.com/RkIMVO2.png"
         },
         {
             "id": 14,
@@ -124,7 +124,7 @@
             "price": 14,
             "image_main": "https://i.imgur.com/Fp2x2Z7.png",
             "flavor": "Tamal de Piña",
-            "image_flavor": "flavors/piña.png"
+            "image_flavor": "https://i.imgur.com/HcoeEKS.png"
         },
         {
             "id": 15,
@@ -132,7 +132,7 @@
             "price": 14,
             "image_main": "https://i.imgur.com/zxmjHC2.png",
             "flavor": "Tamal de Pasas",
-            "image_flavor": "flavors/pasas.png"
+            "image_flavor": "https://i.imgur.com/vBY20y1.png"
         },
         {
             "id": 16,
@@ -140,7 +140,7 @@
             "price": 14,
             "image_main": "https://i.imgur.com/zxmjHC2.png",
             "flavor": "Tamal de Rajas",
-            "image_flavor": "flavors/rajas.png"
+            "image_flavor": "https://i.imgur.com/OlKuOLc.png"
         }
     ]
 }
