@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const Logopages = styled.img`
     width: 62.81px;
     height: 54.18px;
+    @media (min-width: 768px) {
+    width: 80px;
+    height: auto;
+  } 
 `;
 
 export const TextPages = styled.h1`
@@ -19,10 +23,6 @@ export const TextPages = styled.h1`
 export const ShoppingCar = styled.img`
     width: 24px;
     height: 24px;
-    @media (min-width: 768px) {
-    width: 80px;
-    height: auto;
-  } 
 `;
 
 export const TopImages = styled.div`
