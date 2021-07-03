@@ -24,7 +24,7 @@ class SelectFood extends Component {
     this.state = {
       categoryId,
       foods: [],
-      foodsOppositeCategory: [],
+      foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
     };
     console.log(this.state);
@@ -36,9 +36,9 @@ class SelectFood extends Component {
 
   getFoods = async () => {
     const listFoods = await data.getFoodsByCategory(this.state.categoryId);
-    const listFoodsOppositeCategory = await data.getFoodsByCategory(this.state.oppositeCategory);
-    this.setState({ foods: listFoods, foodsOppositeCategory: listFoodsOppositeCategory });
-    console.log('Listas opuestas:', listFoodsOppositeCategory);
+    const listfoodOppositeCategory = await data.getFoodsByCategory(this.state.oppositeCategory);
+    this.setState({ foods: listFoods, foodOppositeCategory: listfoodOppositeCategory });
+    console.log('Listas opuestas:', listfoodOppositeCategory);
   };
 
   getOppositeCategory = (categoryId) => {
@@ -56,7 +56,7 @@ class SelectFood extends Component {
         <GlobalStyle />
         <SliderFoods foods={this.state.foods} />
 
-        <Combo food={this.state.foodsOppositeCategory} />
+        <Combo food={this.state.foodOppositeCategory} />
       </>
     );
   }
