@@ -14,17 +14,20 @@ const GlobalStyle = createGlobalStyle`
         padding: 20px;
         background: #F2F2F2;
     }
-    
 `;
 
 class SelectFood extends Component {
   constructor(props) {
     super(props);
     this.food = this.props.match.params.food;
+    const categoryId = this.props.match.params.category;
     this.state = {
-      categoryId: this.props.match.params.category,
+      categoryId,
       foods: [],
+      foodsOppositeCategory: [],
+      oppositeCategory: this.getOppositeCategory(categoryId),
     };
+    console.log(this.state);
   }
 
   componentDidMount() {
@@ -33,7 +36,18 @@ class SelectFood extends Component {
 
   getFoods = async () => {
     const listFoods = await data.getFoodsByCategory(this.state.categoryId);
-    this.setState({ foods: listFoods });
+    const listFoodsOppositeCategory = await data.getFoodsByCategory(this.state.oppositeCategory);
+    this.setState({ foods: listFoods, foodsOppositeCategory: listFoodsOppositeCategory });
+    console.log('Listas opuestas:', listFoodsOppositeCategory);
+  };
+
+  getOppositeCategory = (categoryId) => {
+    const oppositeCategories = {
+      1: 2,
+      2: 1,
+      3: 2,
+    };
+    return oppositeCategories[categoryId];
   };
 
   render() {
@@ -42,7 +56,7 @@ class SelectFood extends Component {
         <GlobalStyle />
         <SliderFoods foods={this.state.foods} />
 
-        <Combo />
+        <Combo food={this.state.foodsOppositeCategory} />
       </>
     );
   }
