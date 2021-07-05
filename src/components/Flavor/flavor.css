@@ -1,0 +1,45 @@
+.content{
+    display: grid;
+    justify-content: center;
+}
+.Flavor-position{
+    display: inline-grid;
+    margin: .3em;
+}
+
+.verde{
+    grid-column-start: 0;
+    grid-column-end: 1;
+    grid-row-start: 0;
+    grid-row-end: 1;
+}
+.mole{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 0;
+    grid-row-end: 1;
+}
+.raja{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 0;
+    grid-row-end: 1;
+}
+.piña{
+    grid-column-start: 0;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.pasas.piña{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.guayaba.piña{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}

@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { withRouter } from "react-router";
 import { createGlobalStyle } from "styled-components";
 import Data from "../db/Data";
-import SliderFoods from '../components/SliderFoods';
+//import SliderFoods from '../components/SliderFoods';
+import Flavor from "../components/Flavor";
 
 const data = new Data();
 
@@ -40,9 +41,10 @@ class SelectFood extends Component {
         return (
             <>
                 <GlobalStyle />
-                <SliderFoods 
+                {/* <SliderFoods 
                     foods= {this.state.foods}
-                />
+                /> */}
+                <Flavor/>
             </>
         )
     }
