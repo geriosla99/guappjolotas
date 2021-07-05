@@ -47,14 +47,20 @@ class SelectFood extends Component {
     };
     return oppositeCategories[categoryId];
   };
-
+  
   render() {
+    const foodOppositeCategory = this.state.foodOppositeCategory;
+    const isLoaded = foodOppositeCategory.length > 0;
     return (
       <>
         <GlobalStyle />
         <SliderFoods foods={this.state.foods} />
-
-        <Combo food={this.state.foodOppositeCategory} />
+        {!isLoaded && (
+          <span>Cargando...</span>
+        )}
+        {isLoaded &&
+          <Combo food={foodOppositeCategory} isLoaded={isLoaded} />
+        }
       </>
     );
   }

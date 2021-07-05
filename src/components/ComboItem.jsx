@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComboItemContainer, ComboItemTitle, ComboItemPrice } from './combo/comboStyles';
+import { ComboItemContainer, ComboItemTitle, ComboItemPrice, HiddenInput, ImgInput } from './combo/comboStyles';
 
 const ComboItem = ({ id, flavor, img, price, checked, onClick }) => {
   return (
@@ -11,7 +11,12 @@ const ComboItem = ({ id, flavor, img, price, checked, onClick }) => {
           : <ComboItemTitle>{flavor}</ComboItemTitle>}
         <ComboItemPrice>+ ${price} MXN</ComboItemPrice>
       </span>
-      <input type='checkbox' name={flavor} id={flavor} value={flavor} checked={checked} onChange={onClick} />
+      <HiddenInput type='checkbox' name={flavor} id={flavor} value={flavor} checked={checked} onChange={onClick} />
+      {checked
+        ?<ImgInput src="https://i.imgur.com/Zf7kg3n.png" alt="checked" />
+        :<ImgInput src="https://i.imgur.com/dfrVWzx.png" alt="unchecked" />
+    }
+      
     </ComboItemContainer>
   );
 };
