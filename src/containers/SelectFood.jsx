@@ -27,7 +27,6 @@ class SelectFood extends Component {
       foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
     };
-    console.log(this.state);
   }
 
   componentDidMount() {
@@ -38,7 +37,6 @@ class SelectFood extends Component {
     const listFoods = await data.getFoodsByCategory(this.state.categoryId);
     const listfoodOppositeCategory = await data.getFoodsByCategory(this.state.oppositeCategory);
     this.setState({ foods: listFoods, foodOppositeCategory: listfoodOppositeCategory });
-    console.log('Listas opuestas:', listfoodOppositeCategory);
   };
 
   getOppositeCategory = (categoryId) => {
