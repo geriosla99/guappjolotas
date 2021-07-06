@@ -1,10 +1,15 @@
 .content{
     display: grid;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .Flavor-position{
     display: inline-grid;
     margin: .3em;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 48px;
+    column-gap: 60px;
 }
 
 .verde{
