@@ -1,6 +1,5 @@
 import React from "react";
 import { Logopages, TextPages, ShoppingCar, TopImages } from "./header/Header";
-import SearchEmpty from "./SearchEmpty";
 
 const Header = (props) => {
   if (props.visible) {

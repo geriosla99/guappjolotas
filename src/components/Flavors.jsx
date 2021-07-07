@@ -41,10 +41,10 @@ const Flavors = ({foods, selectFood, isLoaded}) => {
             <FlavorTitle>Sabor</FlavorTitle>
             <FlavorContainer>
             {foods && foods.length > 0 && foods.map(element => 
-            {const selected = element.flavor === selectFood ? true:false
-                return (<SingleFlavor key={element.flavor} 
-                img={element.image_flavor} 
-                flavor={element.flavor} selected={checkIfSelected(element.flavor)} onClick={handleClick}/>)
+            {
+              return (<SingleFlavor key={element.flavor} 
+              img={element.image_flavor} 
+              flavor={element.flavor} selected={checkIfSelected(element.flavor)} onClick={handleClick}/>)
             } 
             
             )}
