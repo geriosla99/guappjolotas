@@ -40,7 +40,7 @@ class SelectFood extends Component {
         subtotal: 1 * food.price,
         additions: {},
       }
-      this.setTemporalCart(value);
+      this.setState({temporalCart: value}, () => {console.log(this.state.temporalCart)});
     })
   }
 
@@ -80,13 +80,11 @@ class SelectFood extends Component {
   getComboSelected = (param) => {
     this.setState({
       temporalCart: {...this.state.temporalCart, additions:param, subtotal: this.state.temporalCart.subtotal + param.price}
-    })
+    }, () => {console.log(this.state.temporalCart)})
   }
 
   setTemporalCart = (value) => {
-    console.log("value:",value)
-    this.setState({temporalCart: value}, () => {console.log(this.state.temporalCart)});
-    // this.setState({temporalCart: {...this.state.temporalCart, item:value.item} }, () => {console.log(this.state.temporalCart)});
+    this.setState({temporalCart: {...this.state.temporalCart, item:value.item} }, () => {console.log(this.state.temporalCart)});
   }
   
   
@@ -94,7 +92,6 @@ class SelectFood extends Component {
     const foodComboCategory = this.state.foodComboCategory;
     const isLoaded = foodComboCategory.length > 0;
     const flavorsLoaded = this.state.foods.length > 0;
-    console.log(this.state.temporalCart);
     return (
       <>
         <GlobalStyle />
