@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Title, Price} from './slider/SliderStyles'
 import QuantityDetails from './QuantityDetails';
 // Import Swiper React components
@@ -18,14 +18,22 @@ import SwiperCore, {
 // install Swiper modules
 SwiperCore.use([EffectCoverflow]);
 
-const SliderFoods = ({foods}) => {
+const SliderFoods = ({foods, setTemporalCart}) => {
 
-    const [food, setFood] = useState(foods[0]);
+    const [food, setFood] = useState([foods[0]]);
     const [quantity, setQuantity] = useState(1);
 
     const handleChange = (index) => {
         const selected = foods[index];
         setFood(selected);
+        const newCart = {
+            items: [
+                food
+            ],
+            quantity: quantity,
+            subtotal: quantity * food.price
+        }
+        setTemporalCart(newCart);
     }
     
     return (

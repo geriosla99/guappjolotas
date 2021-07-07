@@ -27,6 +27,7 @@ class SelectFood extends Component {
       foods: [],
       foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
+      temporalCart: []
     };
     console.log(this.food); 
   }
@@ -67,6 +68,10 @@ class SelectFood extends Component {
     };
     return oppositeCategories[categoryId];
   };
+
+  setTemporalCart = (value) => {
+    this.setState({temporalCart: value});
+  }
   
   render() {
     const foodOppositeCategory = this.state.foodOppositeCategory;
@@ -77,7 +82,8 @@ class SelectFood extends Component {
         <GlobalStyle />
         <SliderFoods 
           foods={this.state.foods}
-          selectFood={this.food}
+          temporalCart= {this.state.temporalCart}
+          setTemporalCart = {this.setTemporalCart}
         />
         <Flavors 
           foods={this.state.foods} 
