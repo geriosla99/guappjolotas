@@ -4,6 +4,9 @@ import { createGlobalStyle } from 'styled-components';
 import Data from '../db/Data';
 import SliderFoods from '../components/SliderFoods';
 import Combo from '../components/Combo';
+import ButtonsBS from '../components/ButtonsBS';
+import ButtonsAddCar from '../components/ButtonAddCar';
+
 
 const data = new Data();
 
@@ -17,53 +20,55 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 class SelectFood extends Component {
-  constructor(props) {
-    super(props);
-    this.food = this.props.match.params.food;
-    const categoryId = this.props.match.params.category;
-    this.state = {
-      categoryId,
-      foods: [],
-      foodOppositeCategory: [],
-      oppositeCategory: this.getOppositeCategory(categoryId),
-    };
-  }
+   constructor(props) {
+      super(props);
+      this.food = this.props.match.params.food;
+      const categoryId = this.props.match.params.category;
+      this.state = {
+         categoryId,
+         foods: [],
+         foodOppositeCategory: [],
+         oppositeCategory: this.getOppositeCategory(categoryId),
+      };
+   }
 
-  componentDidMount() {
-    this.getFoods();
-  }
+   componentDidMount() {
+      this.getFoods();
+   }
 
-  getFoods = async () => {
-    const listFoods = await data.getFoodsByCategory(this.state.categoryId);
-    const listfoodOppositeCategory = await data.getFoodsByCategory(this.state.oppositeCategory);
-    this.setState({ foods: listFoods, foodOppositeCategory: listfoodOppositeCategory });
-  };
+   getFoods = async () => {
+      const listFoods = await data.getFoodsByCategory(this.state.categoryId);
+      const listfoodOppositeCategory = await data.getFoodsByCategory(this.state.oppositeCategory);
+      this.setState({ foods: listFoods, foodOppositeCategory: listfoodOppositeCategory });
+   };
 
-  getOppositeCategory = (categoryId) => {
-    const oppositeCategories = {
-      1: 2,
-      2: 1,
-      3: 2,
-    };
-    return oppositeCategories[categoryId];
-  };
-  
-  render() {
-    const foodOppositeCategory = this.state.foodOppositeCategory;
-    const isLoaded = foodOppositeCategory.length > 0;
-    return (
-      <>
-        <GlobalStyle />
-        <SliderFoods foods={this.state.foods} />
-        {!isLoaded && (
-          <span>Cargando...</span>
-        )}
-        {isLoaded &&
-          <Combo food={foodOppositeCategory} isLoaded={isLoaded} />
-        }
-      </>
-    );
-  }
+   getOppositeCategory = (categoryId) => {
+      const oppositeCategories = {
+         1: 2,
+         2: 1,
+         3: 2,
+      };
+      return oppositeCategories[categoryId];
+   };
+
+   render() {
+      const foodOppositeCategory = this.state.foodOppositeCategory;
+      const isLoaded = foodOppositeCategory.length > 0;
+      return (
+         <>
+            <ButtonsBS />
+            <GlobalStyle />
+            <SliderFoods foods={this.state.foods} />
+            {!isLoaded && (
+               <span>Cargando...</span>
+            )}
+            {isLoaded &&
+               <Combo food={foodOppositeCategory} isLoaded={isLoaded} />
+            }
+            <ButtonsAddCar />
+         </>
+      );
+   }
 }
 
 export default withRouter(SelectFood);
