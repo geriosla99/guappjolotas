@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { createGlobalStyle } from 'styled-components';
 import Data from '../db/Data';
-import SliderFoods from '../components/SliderFoods';
+// import SliderFoods from '../components/SliderFoods';
 import Combo from '../components/Combo';
+import Flavors from "../components/Flavors";
 
 const data = new Data();
 
@@ -27,6 +28,7 @@ class SelectFood extends Component {
       foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
     };
+    console.log(this.food); 
   }
 
   componentDidMount() {
@@ -51,10 +53,13 @@ class SelectFood extends Component {
   render() {
     const foodOppositeCategory = this.state.foodOppositeCategory;
     const isLoaded = foodOppositeCategory.length > 0;
+    const flavorsLoaded = this.state.foods.length > 0;
     return (
       <>
         <GlobalStyle />
-        <SliderFoods foods={this.state.foods} />
+        {/* <SliderFoods foods={this.state.foods} /> */}
+        <Flavors foods={this.state.foods} selectFood={this.food}
+        isLoaded={flavorsLoaded}/>
         {!isLoaded && (
           <span>Cargando...</span>
         )}
@@ -62,7 +67,7 @@ class SelectFood extends Component {
           <Combo food={foodOppositeCategory} isLoaded={isLoaded} />
         }
       </>
-    );
+    )
   }
 }
 
