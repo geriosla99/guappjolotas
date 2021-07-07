@@ -25,9 +25,9 @@ class SelectFood extends Component {
     this.state = {
       categoryId,
       foods: [],
-      foodOppositeCategory: [],
-      oppositeCategory: this.getOppositeCategory(categoryId),
-      oppositeFoodSelected: {},
+      foodComboCategory: [],
+      comboCategory: this.getComboCategory(categoryId),
+      comboFoodSelected: {},
       temporalCart: {}
     };
   }
@@ -59,27 +59,27 @@ class SelectFood extends Component {
 
   getFoods = async () => {
     const listFoods = await data.getFoodsByCategory(this.state.categoryId);
-    const listfoodOppositeCategory = await data.getFoodsByCategory(this.state.oppositeCategory);
+    const listfoodComboCategory = await data.getFoodsByCategory(this.state.comboCategory);
 
     //Order array for selected food first
     const [foodElement] = await listFoods.filter((food) => food.flavor === this.food);
     const index = await listFoods.indexOf(foodElement);
     await this.moveArray(listFoods, index, 0);
 
-    this.setState({ foods: listFoods, foodOppositeCategory: listfoodOppositeCategory })
+    this.setState({ foods: listFoods, foodComboCategory: listfoodComboCategory })
   };
 
-  getOppositeCategory = (categoryId) => {
-    const oppositeCategories = {
+  getComboCategory = (categoryId) => {
+    const comboCategories = {
       1: 2,
       2: 1,
       3: 2,
     };
-    return oppositeCategories[categoryId];
+    return comboCategories[categoryId];
   };
   getComboSelected = (param) => {
     this.setState({
-      oppositeFoodSelected: param,
+      comboFoodSelected: param,
     })
   }
 
@@ -89,10 +89,10 @@ class SelectFood extends Component {
   
   
   render() {
-    const foodOppositeCategory = this.state.foodOppositeCategory;
-    const isLoaded = foodOppositeCategory.length > 0;
+    const foodComboCategory = this.state.foodComboCategory;
+    const isLoaded = foodComboCategory.length > 0;
     const flavorsLoaded = this.state.foods.length > 0;
-    console.log(this.state.oppositeFoodSelected);
+    console.log(this.state.comboFoodSelected);
     console.log(this.state.temporalCart);
     return (
       <>
@@ -112,7 +112,7 @@ class SelectFood extends Component {
         )}
         {isLoaded &&
           <Combo 
-            food={foodOppositeCategory} 
+            food={foodComboCategory} 
             isLoaded={isLoaded} 
             handler={this.getComboSelected} />
         }
