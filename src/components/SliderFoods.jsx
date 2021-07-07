@@ -18,20 +18,16 @@ import SwiperCore, {
 // install Swiper modules
 SwiperCore.use([EffectCoverflow]);
 
-const SliderFoods = ({foods, setTemporalCart}) => {
+const SliderFoods = ({foods, setTemporalCart, temporalCart}) => {
 
-    const [food, setFood] = useState([foods[0]]);
     const [quantity, setQuantity] = useState(1);
 
     const handleChange = (index) => {
         const selected = foods[index];
-        setFood(selected);
         const newCart = {
-            items: [
-                food
-            ],
+            item: selected,
             quantity: quantity,
-            subtotal: quantity * food.price
+            subtotal: quantity * selected.price
         }
         setTemporalCart(newCart);
     }
