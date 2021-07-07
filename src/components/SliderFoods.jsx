@@ -20,18 +20,14 @@ SwiperCore.use([EffectCoverflow]);
 
 const SliderFoods = ({foods, setTemporalCart}) => {
 
-    const [food, setFood] = useState([foods[0]]);
     const [quantity, setQuantity] = useState(1);
 
     const handleChange = (index) => {
         const selected = foods[index];
-        setFood(selected);
         const newCart = {
-            items: [
-                food
-            ],
+            item: selected,
             quantity: quantity,
-            subtotal: quantity * food.price
+            subtotal: quantity * selected.price
         }
         setTemporalCart(newCart);
     }
@@ -39,7 +35,7 @@ const SliderFoods = ({foods, setTemporalCart}) => {
     return (
         <>
             <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{
-                "rotate": 50,
+                "rotate": 0,
                 "stretch": 0,
                 "depth": 100,
                 "modifier": 3,

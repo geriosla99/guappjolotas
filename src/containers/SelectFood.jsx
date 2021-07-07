@@ -28,12 +28,21 @@ class SelectFood extends Component {
       foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
       oppositeFoodSelected: {},
-      temporalCart: []
+      temporalCart: {}
     };
   }
 
   componentDidMount() {
-    this.getFoods();
+    this.getFoods().then(() => {
+      const food = this.state.foods[0];
+      const value = {
+        item: food,
+        quantity: 1,
+        subtotal: 1 * food.price,
+        additions: {}
+      }
+      this.setTemporalCart(value);
+    })
   }
 
   //Function for order array
@@ -57,7 +66,7 @@ class SelectFood extends Component {
     const index = await listFoods.indexOf(foodElement);
     await this.moveArray(listFoods, index, 0);
 
-    this.setState({ foods: listFoods, foodOppositeCategory: listfoodOppositeCategory });
+    this.setState({ foods: listFoods, foodOppositeCategory: listfoodOppositeCategory })
   };
 
   getOppositeCategory = (categoryId) => {
@@ -75,7 +84,7 @@ class SelectFood extends Component {
   }
 
   setTemporalCart = (value) => {
-    this.setState({temporalCart: value});
+    this.setState({temporalCart: value}, () => {console.log(this.state.temporalCart)});
   }
   
   
