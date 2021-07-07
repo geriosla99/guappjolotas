@@ -82,10 +82,11 @@ class SelectFood extends Component {
     this.state.temporalCart.additions.price ? additionPrice = this.state.temporalCart.additions.price : additionPrice = 0;
     const subtotalEmpty = this.state.temporalCart.subtotal - additionPrice;
     this.setState({
-      temporalCart: {...this.state.temporalCart, additions:param, subtotal: subtotalEmpty + param.price}
+      temporalCart: {
+        ...this.state.temporalCart, additions:param, 
+        subtotal: Object.keys(param).length === 0 ? subtotalEmpty : subtotalEmpty + param.price}
     }, () => {console.log(this.state.temporalCart)})
   }
-
   setTemporalCart = (value) => {
     this.setState({temporalCart: {...this.state.temporalCart, item:value.item} }, () => {console.log(this.state.temporalCart)});
   }
