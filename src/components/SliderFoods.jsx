@@ -39,7 +39,7 @@ const SliderFoods = ({foods, setTemporalCart}) => {
     return (
         <>
             <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{
-                "rotate": 50,
+                "rotate": 0,
                 "stretch": 0,
                 "depth": 100,
                 "modifier": 3,
