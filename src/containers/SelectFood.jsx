@@ -27,7 +27,6 @@ class SelectFood extends Component {
       foods: [],
       foodComboCategory: [],
       comboCategory: this.getComboCategory(categoryId),
-      comboFoodSelected: {},
       temporalCart: {}
     };
   }
@@ -39,7 +38,7 @@ class SelectFood extends Component {
         item: food,
         quantity: 1,  
         subtotal: 1 * food.price,
-        additions: {}
+        additions: {},
       }
       this.setTemporalCart(value);
     })
@@ -77,14 +76,17 @@ class SelectFood extends Component {
     };
     return comboCategories[categoryId];
   };
+
   getComboSelected = (param) => {
     this.setState({
-      comboFoodSelected: param,
+      temporalCart: {...this.state.temporalCart, additions:param, subtotal: this.state.temporalCart.subtotal + param.price}
     })
   }
 
   setTemporalCart = (value) => {
+    console.log("value:",value)
     this.setState({temporalCart: value}, () => {console.log(this.state.temporalCart)});
+    // this.setState({temporalCart: {...this.state.temporalCart, item:value.item} }, () => {console.log(this.state.temporalCart)});
   }
   
   
@@ -92,7 +94,6 @@ class SelectFood extends Component {
     const foodComboCategory = this.state.foodComboCategory;
     const isLoaded = foodComboCategory.length > 0;
     const flavorsLoaded = this.state.foods.length > 0;
-    console.log(this.state.comboFoodSelected);
     console.log(this.state.temporalCart);
     return (
       <>
