@@ -86,6 +86,10 @@ class SelectFood extends Component {
   setTemporalCart = (value) => {
     this.setState({temporalCart: {...this.state.temporalCart, item:value.item} }, () => {console.log(this.state.temporalCart)});
   }
+
+  setQuantityTemporalCart = (quantity) => {
+    this.setState({temporalCart: {...this.state.temporalCart, quantity:quantity} }, () => {console.log(this.state.temporalCart)});
+  }
   
   
   render() {
@@ -99,6 +103,7 @@ class SelectFood extends Component {
           foods={this.state.foods}
           temporalCart= {this.state.temporalCart}
           setTemporalCart = {this.setTemporalCart}
+          setQuantityTemporalCart = {this.setQuantityTemporalCart}
         />
         <Flavors 
           foods={this.state.foods} 

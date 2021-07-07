@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Title, Price} from './slider/SliderStyles'
 import QuantityDetails from './QuantityDetails';
 // Import Swiper React components
@@ -18,7 +18,7 @@ import SwiperCore, {
 // install Swiper modules
 SwiperCore.use([EffectCoverflow]);
 
-const SliderFoods = ({foods, setTemporalCart}) => {
+const SliderFoods = ({foods, setTemporalCart, setQuantityTemporalCart}) => {
 
     const [quantity, setQuantity] = useState(1);
 
@@ -31,6 +31,18 @@ const SliderFoods = ({foods, setTemporalCart}) => {
         }
         setTemporalCart(newCart);
     }
+
+    const handleQuantity = (operation) => {
+        if (operation === "plus") {
+            setQuantity(quantity + 1);
+        }else if(quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    }
+
+    useEffect(() => {
+        setQuantityTemporalCart(quantity);
+    }, [quantity])
     
     return (
         <>
@@ -58,7 +70,7 @@ const SliderFoods = ({foods, setTemporalCart}) => {
             </Swiper>
             <QuantityDetails 
                 quantity={quantity}
-                setQuantity={setQuantity}
+                handleQuantity={handleQuantity}
             />
         </>
     )
