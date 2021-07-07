@@ -92,6 +92,9 @@ class App extends Component {
         <GlobalStyle />
         <Header 
           visible={this.state.visible}
+          changeVisible = {this.changeVisible}
+          textSearch = {this.state.textSearch}
+          visibleMagnify = {this.state.visibleMagnify}
         />
         <SearchBar
           visible={this.state.visible}
