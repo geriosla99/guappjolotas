@@ -38,7 +38,8 @@ class SelectFood extends Component {
       const value = {
         item: food,
         quantity: 1,
-        subtotal: 1 * food.price
+        subtotal: 1 * food.price,
+        additions: {}
       }
       this.setTemporalCart(value);
     })
