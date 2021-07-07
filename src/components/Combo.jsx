@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import ComboItem from './ComboItem';
 import { ComboFoodContainer, ComboMainTitle, ComboMainText } from './combo/comboStyles';
 
-const Combo = ({ food, isLoaded }) => {
-  const initialState = Array.from(food, item => { return { id: item.id, isChecked: false } } );
+const Combo = ({ food, isLoaded, handler }) => {
+  const initialState = Array.from(food, item => { return { id: item.id, price: item.price, isChecked: false } } );
   const [listChecked, setChecked] = useState(initialState);
 
   if (isLoaded && listChecked.length === 0) {
@@ -22,9 +22,15 @@ const Combo = ({ food, isLoaded }) => {
   const handleChecked = (e) => {
     const { id } = e.target.closest('div');
     const items = Array.from(listChecked);
+    let checkedPrice = 0;
     for (const item of items) {
       item.isChecked = item.id === parseInt(id) ? !item.isChecked : false;
+      if (item.id === parseInt(id)) {
+        checkedPrice = item.price;
+      }
     }
+    handler(checkedPrice);
+    
     setChecked(items);
   }
 

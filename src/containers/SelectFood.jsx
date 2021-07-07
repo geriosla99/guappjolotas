@@ -27,6 +27,7 @@ class SelectFood extends Component {
       foods: [],
       foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
+      oppositeFoodPrice: 0
     };
     console.log(this.food); 
   }
@@ -49,6 +50,11 @@ class SelectFood extends Component {
     };
     return oppositeCategories[categoryId];
   };
+  handlerShoppingCart = (param) => {
+    this.setState({
+      oppositeFoodPrice: param
+    })
+  }
   
   render() {
     const foodOppositeCategory = this.state.foodOppositeCategory;
@@ -64,7 +70,10 @@ class SelectFood extends Component {
           <span>Cargando...</span>
         )}
         {isLoaded &&
-          <Combo food={foodOppositeCategory} isLoaded={isLoaded} />
+          <Combo 
+            food={foodOppositeCategory} 
+            isLoaded={isLoaded} 
+            handler={this.handlerShoppingCart} />
         }
       </>
     )
