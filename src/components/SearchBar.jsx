@@ -23,7 +23,8 @@ class SearchBar extends Component {
           {this.props.visible === false && <BtnCancel onClick={() => this.props.changeVisible(true)}>Cancelar</BtnCancel>}
         </SearchGroupContainer>
 
-        {this.props.visible === false && this.props.visibleMagnify === true ? <SearchEmpty image="https://i.imgur.com/aGCaGFj.png" alt="Búsqueda" text={this.props.textSearch} /> : ""}
+        {this.props.visible === false && this.props.visibleMagnify === true ? 
+        <SearchEmpty image="https://i.imgur.com/aGCaGFj.png" alt="Búsqueda" text={this.props.textSearch} /> : ""}
       </>
     );
   }
