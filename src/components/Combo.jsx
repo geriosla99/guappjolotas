@@ -8,10 +8,7 @@ const Combo = ({ food, isLoaded, handler }) => {
   });
   const [listChecked, setChecked] = useState(initialState);
 
-  const getOppositeFoodSelected = (id) => {
-    const selected = food.find(food=>food.id === id);
-    return selected;
-  }
+  const getOppositeFoodSelected = (id) => (id ? food.find((food) => food.id === id) : {});
 
   if (isLoaded && listChecked.length === 0) {
     setChecked(initialState);
@@ -31,15 +28,12 @@ const Combo = ({ food, isLoaded, handler }) => {
     const items = Array.from(listChecked);
     let checkedId = 0;
     for (const item of items) {
-      if (item.id === parseInt(id)) {
+      item.isChecked = item.id === parseInt(id) ? !item.isChecked : false;
+      if (item.isChecked) {
         checkedId = item.id;
-        item.isChecked = !item.isChecked;
-      } else {
-        item.isChecked = false;
       }
     }
-    const selected = getOppositeFoodSelected(checkedId)
-    handler(selected);
+    handler(getOppositeFoodSelected(checkedId));
     setChecked(items);
   };
 

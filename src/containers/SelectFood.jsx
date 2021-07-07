@@ -37,7 +37,7 @@ class SelectFood extends Component {
       const food = this.state.foods[0];
       const value = {
         item: food,
-        quantity: 1,
+        quantity: 1,  
         subtotal: 1 * food.price,
         additions: {}
       }
@@ -77,9 +77,9 @@ class SelectFood extends Component {
     };
     return oppositeCategories[categoryId];
   };
-  handlerShoppingCart = (param) => {
+  getComboSelected = (param) => {
     this.setState({
-      oppositeFoodSelected: param
+      oppositeFoodSelected: param,
     })
   }
 
@@ -114,7 +114,7 @@ class SelectFood extends Component {
           <Combo 
             food={foodOppositeCategory} 
             isLoaded={isLoaded} 
-            handler={this.handlerShoppingCart} />
+            handler={this.getComboSelected} />
         }
       </>
     )
