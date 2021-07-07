@@ -27,7 +27,7 @@ class SelectFood extends Component {
       foods: [],
       foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
-      oppositeFoodPrice: 0,
+      oppositeFoodSelected: {},
       temporalCart: []
     };
   }
@@ -70,7 +70,7 @@ class SelectFood extends Component {
   };
   handlerShoppingCart = (param) => {
     this.setState({
-      oppositeFoodPrice: param
+      oppositeFoodSelected: param
     })
   }
 
@@ -78,10 +78,13 @@ class SelectFood extends Component {
     this.setState({temporalCart: value});
   }
   
+  
   render() {
     const foodOppositeCategory = this.state.foodOppositeCategory;
     const isLoaded = foodOppositeCategory.length > 0;
     const flavorsLoaded = this.state.foods.length > 0;
+    console.log(this.state.oppositeFoodSelected);
+    console.log(this.state.temporalCart);
     return (
       <>
         <GlobalStyle />
