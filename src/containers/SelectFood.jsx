@@ -79,7 +79,7 @@ class SelectFood extends Component {
 
   getComboSelected = (param) => {
     this.setState({
-      temporalCart: {...this.state.temporalCart, additions:param, subtotal: this.state.temporalCart.subtotal + param.price}
+      temporalCart: {...this.state.temporalCart, additions:param,  subtotal: Object.keys(param).length === 0 ? this.state.temporalCart.subtotal :this.state.temporalCart.subtotal + param.price}
     }, () => {console.log(this.state.temporalCart)})
   }
 
