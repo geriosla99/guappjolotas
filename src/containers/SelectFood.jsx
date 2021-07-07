@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import Data from '../db/Data';
 // import SliderFoods from '../components/SliderFoods';
 import Combo from '../components/Combo';
-import Flavors from "../components/Flavors";
+import Flavors from '../components/Flavors';
 
 const data = new Data();
 
@@ -27,9 +27,8 @@ class SelectFood extends Component {
       foods: [],
       foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
-      oppositeFoodPrice: 0
+      oppositeFoodPrice: 0,
     };
-    console.log(this.food); 
   }
 
   componentDidMount() {
@@ -50,12 +49,12 @@ class SelectFood extends Component {
     };
     return oppositeCategories[categoryId];
   };
-  handlerShoppingCart = (param) => {
+  handlerOppositeFoodPrice = (param) => {
     this.setState({
-      oppositeFoodPrice: param
-    })
-  }
-  
+      oppositeFoodPrice: param,
+    });
+  };
+
   render() {
     const foodOppositeCategory = this.state.foodOppositeCategory;
     const isLoaded = foodOppositeCategory.length > 0;
@@ -64,19 +63,11 @@ class SelectFood extends Component {
       <>
         <GlobalStyle />
         {/* <SliderFoods foods={this.state.foods} /> */}
-        <Flavors foods={this.state.foods} selectFood={this.food}
-        isLoaded={flavorsLoaded}/>
-        {!isLoaded && (
-          <span>Cargando...</span>
-        )}
-        {isLoaded &&
-          <Combo 
-            food={foodOppositeCategory} 
-            isLoaded={isLoaded} 
-            handler={this.handlerShoppingCart} />
-        }
+        <Flavors foods={this.state.foods} selectFood={this.food} isLoaded={flavorsLoaded} />
+        {!isLoaded && <span>Cargando...</span>}
+        {isLoaded && <Combo food={foodOppositeCategory} isLoaded={isLoaded} handler={this.handlerOppositeFoodPrice } />}
       </>
-    )
+    );
   }
 }
 
