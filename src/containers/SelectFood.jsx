@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { createGlobalStyle } from 'styled-components';
 import Data from '../db/Data';
-// import SliderFoods from '../components/SliderFoods';
+import SliderFoods from '../components/SliderFoods';
 import Combo from '../components/Combo';
 import Flavors from "../components/Flavors";
 
@@ -27,18 +27,36 @@ class SelectFood extends Component {
       foods: [],
       foodOppositeCategory: [],
       oppositeCategory: this.getOppositeCategory(categoryId),
-      oppositeFoodPrice: 0
+      oppositeFoodPrice: 0,
+      temporalCart: []
     };
-    console.log(this.food); 
   }
 
   componentDidMount() {
     this.getFoods();
   }
 
+  //Function for order array
+  moveArray(array, old_index, new_index) { 
+    if (new_index >= array.length) { 
+        let k = new_index - array.length; 
+        while ((k--) + 1) { 
+          array.push(undefined); 
+        } 
+    } 
+    array.splice(new_index, 0, array.splice(old_index, 1)[0]); 
+    return array; 
+  };
+
   getFoods = async () => {
     const listFoods = await data.getFoodsByCategory(this.state.categoryId);
     const listfoodOppositeCategory = await data.getFoodsByCategory(this.state.oppositeCategory);
+
+    //Order array for selected food first
+    const [foodElement] = await listFoods.filter((food) => food.flavor === this.food);
+    const index = await listFoods.indexOf(foodElement);
+    await this.moveArray(listFoods, index, 0);
+
     this.setState({ foods: listFoods, foodOppositeCategory: listfoodOppositeCategory });
   };
 
@@ -55,6 +73,10 @@ class SelectFood extends Component {
       oppositeFoodPrice: param
     })
   }
+
+  setTemporalCart = (value) => {
+    this.setState({temporalCart: value});
+  }
   
   render() {
     const foodOppositeCategory = this.state.foodOppositeCategory;
@@ -63,9 +85,16 @@ class SelectFood extends Component {
     return (
       <>
         <GlobalStyle />
-        {/* <SliderFoods foods={this.state.foods} /> */}
-        <Flavors foods={this.state.foods} selectFood={this.food}
-        isLoaded={flavorsLoaded}/>
+        <SliderFoods 
+          foods={this.state.foods}
+          temporalCart= {this.state.temporalCart}
+          setTemporalCart = {this.setTemporalCart}
+        />
+        <Flavors 
+          foods={this.state.foods} 
+          selectFood={this.food}
+          isLoaded={flavorsLoaded}
+        />
         {!isLoaded && (
           <span>Cargando...</span>
         )}
