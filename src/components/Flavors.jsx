@@ -22,7 +22,6 @@ const Flavors = ({ foods, selectFood, isLoaded, setTemporalCartFlavor }) => {
     const { id } = e.target;
     const items = Array.from(selectedFlavor);
     const isSelectedFlavor = foods.find((food) => food.flavor === id);
-    console.log(isSelectedFlavor);
     const newCart = {
       item: isSelectedFlavor,
       quantity: 1,

@@ -92,7 +92,7 @@ class SelectFood extends Component {
 
   setTemporalCartFlavor = (value) => {
     this.setState({temporalCart: {...this.state.temporalCart, item:value.item} }, () => {
-      console.log("value", value);
+      console.log(this.state.temporalCart);
     });
     const listFoods = this.state.foods;
     const index = listFoods.indexOf(value.item);
