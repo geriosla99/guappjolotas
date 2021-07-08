@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 
+export const LinkFoodContainer = styled.div`
+    max-width: 700px;
+    margin: 0 auto;
+`;
+
 export const ContainerFood = styled.div`
     display: flex;
     flex-direction: row;
@@ -13,6 +18,11 @@ export const ContainerFood = styled.div`
     border-radius: 20px;
     margin: 8px auto;
     max-width: 700px;
+    &:hover{
+        transform: translateY(-5px);
+        -webkit-box-shadow: 0px 5px 20px -5px rgba(106,106,106,0.8); 
+        box-shadow: 0px 5px 20px -5px rgba(106,106,106,0.8);
+    }
 `;
 
 export const ImageFoodMain = styled.img`
