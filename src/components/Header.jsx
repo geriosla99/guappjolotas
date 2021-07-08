@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Logopages, TextPages, ShoppingCar, TopImages } from "./header/Header";
-import SearchEmpty from "./SearchEmpty";
+
 const Header = (props) => {
   if (props.visible) {
 
