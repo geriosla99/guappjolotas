@@ -7,7 +7,7 @@ import Combo from '../components/Combo';
 import Flavors from "../components/Flavors";
 import ButtonsAddCar from '../components/ButtonAddCar'
 import ButtonsBS from '../components/ButtonsBS'
-
+ 
 const data = new Data();
 
 const GlobalStyle = createGlobalStyle`
