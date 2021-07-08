@@ -60,6 +60,8 @@ const SliderFoods = ({foods, setTemporalCart, setQuantityTemporalCart}) => {
                 "slideShadows": true
             }} pagination={false} className="mySwiper"
             onSlideChange={(e) => handleChange(e.realIndex)}
+            initialSlide = {0}
+            observer={true}
             >
 
                 {
