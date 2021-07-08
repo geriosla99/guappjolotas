@@ -17,8 +17,7 @@ const CartEmpty = () => {
                 <TitleCar>Carrito</TitleCar>
             </HeadCart>
             <BodyCar>
-                <ShoppingCart src="https://i.imgur.com/TeEyXRv.png" alt="" />
-                <h3>No hay productos</h3>
+                <ShoppingCart src="https://i.imgur.com/MhBGa2K.png" alt="" />
             </BodyCar>
             <ButtonPay>
                 <DivButtonPay>

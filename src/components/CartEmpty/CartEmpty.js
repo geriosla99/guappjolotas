@@ -7,8 +7,8 @@ export const ButtonBack = styled.img`
 
 export const ShoppingCart = styled.img`
     opacity:0.5;
-    width: 120px;
-    height: 120px;
+    width: 146px;
+    height: 152,99px
 `;
 
 export const HeadCart = styled.div`
