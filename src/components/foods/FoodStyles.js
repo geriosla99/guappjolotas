@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 
+export const LinkFoodContainer = styled.div`
+    max-width: 700px;
+    margin: 0 auto;
+`;
+
 export const ContainerFood = styled.div`
     display: flex;
     flex-direction: row;
