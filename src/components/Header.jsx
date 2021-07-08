@@ -6,8 +6,10 @@ const Header = (props) => {
   if (props.visible) {
 
       const handleClick = ()=>{
-        console.log('yendo a carrito')
+        console.log('yendo a carrito');
+        props.changeVisible(false);
       }
+
 
     return (
       <>
@@ -19,7 +21,6 @@ const Header = (props) => {
           
         </TopImages>
         <TextPages>Nada como una Guajolota para empezar el día</TextPages>
-        
       </>
     );
   } else {

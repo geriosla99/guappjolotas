@@ -1,5 +1,6 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components';
+import CartEmpty from "../components/CartEmpty";
 
 const GlobalStyle = createGlobalStyle`
     body{
@@ -14,7 +15,7 @@ const Cart = () => {
     return (
         <>
             <GlobalStyle />
-            <h1>Soy el carrito</h1>
+            <CartEmpty/>
         </>
     )
 }
