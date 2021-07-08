@@ -144,7 +144,7 @@ class SelectFood extends Component {
                   isLoaded={isLoaded}
                   handler={this.getComboSelected} />
             }
-            <ButtonsAddCar />
+            <ButtonsAddCar temporalCart={this.state.temporalCart}/>
          </>
       )
    }
