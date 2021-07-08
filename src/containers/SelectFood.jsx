@@ -5,7 +5,7 @@ import Data from '../db/Data';
 import SliderFoods from '../components/SliderFoods';
 import Combo from '../components/Combo';
 import Flavors from "../components/Flavors";
-
+ 
 const data = new Data();
 
 const GlobalStyle = createGlobalStyle`
