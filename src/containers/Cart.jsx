@@ -1,7 +1,7 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components';
 import CartEmpty from "../components/CartEmpty";
-
+import ButtonAddCar from "../components/ButtonAddCar";
 const GlobalStyle = createGlobalStyle`
     body{
         font-family: 'Inter', sans-serif;
