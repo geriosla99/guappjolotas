@@ -31,9 +31,24 @@ const ButtonsAddCar = ({ temporalCart }) => {
       cart.quantityItems += 1;
     }
 
+    //If exist cart at LocalStorage
     if (currentCart) {
       cart.quantityItems += currentCart.quantityItems;
       cart.total += currentCart.total;
+      //Foreach from cart in localStorage
+      currentCart.items.forEach((item, index, array) => {
+        //Foreach from cart new
+        cart.items.forEach((element) => {
+          if (item.flavor === element.flavor) {
+            //If is equal add quantity and subtotal
+            element.quantity += item.quantity;
+            element.subtotal += item.subtotal;
+            //Delete the element from array localStorage
+            array.splice(index, 1);
+          }
+        })
+      });
+      //Includes to cart the cart in localStorage
       cart.items = [
         ...cart.items,
         ...currentCart.items
