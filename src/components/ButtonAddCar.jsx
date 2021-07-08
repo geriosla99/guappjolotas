@@ -10,34 +10,59 @@ const ButtonsAddCar = ({ temporalCart }) => {
 
    const handleClick = () => {
 
-      let cart = {}
-      if (temporalCart.additions.price) {
-         cart = {
-            items: [
-               temporalCart.item,
-               temporalCart.additions
-            ]
-         }
-         cart.items[1].quantity = 1
-         cart.items[1].subtotal = temporalCart.additions.price
-         cart.items[0].quantity = temporalCart.quantity
-         cart.items[0].subtotal = temporalCart.item.price * temporalCart.quantity
-
-      } else {
-         cart = {
-            items: [
-               temporalCart.item
-            ]
-         }
-         cart.items[0].quantity = temporalCart.quantity
-         cart.items[0].subtotal = temporalCart.item.price * temporalCart.quantity
+      let cart = {
+         items: [
+            {
+               ...temporalCart.item,
+               quantity: temporalCart.quantity,
+               subtotal: temporalCart.item.price * temporalCart.quantity
+            }
+         ]
       }
+      if (temporalCart.additions.price) {
+         cart.items = [
+            ...cart.items,
+            {
+               ...temporalCart.additions,
+               quantity: 1,
+               subtotal: temporalCart.additions.price
+            }
+         ]
+      }
+
+      // let cart = {}
+      // if (temporalCart.additions.price) {
+      //    cart = {
+      //       items: [
+      //          temporalCart.item,
+      //          temporalCart.additions
+      //       ]
+      //    }
+      //    cart.items[1].quantity = 1
+      //    cart.items[1].subtotal = temporalCart.additions.price
+      //    cart.items[0].quantity = temporalCart.quantity
+      //    cart.items[0].subtotal = temporalCart.item.price * temporalCart.quantity
+
+      // } else {
+      //    cart = {
+      //       items: [
+      //          temporalCart.item
+      //       ]
+      //    }
+      //    cart.items[0].quantity = temporalCart.quantity
+      //    cart.items[0].subtotal = temporalCart.item.price * temporalCart.quantity
+      // }
+
+
       cart.total = currentCart ? currentCart.total + temporalCart.subtotal : temporalCart.subtotal;
+
+
       if (currentCart) {
          cart.quantityItems = currentCart.quantityItems + temporalCart.additions.price ? temporalCart.quantity + 1 : temporalCart.quantity;
       } else {
         cart.quantityItems = temporalCart.additions.price ? temporalCart.quantity + 1 : temporalCart.quantity;
       }
+      console.log(cart);
       localStorage.setItem('cart', JSON.stringify(cart))
       history.push('/cart')
    }
