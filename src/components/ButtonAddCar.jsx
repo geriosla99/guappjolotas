@@ -34,6 +34,10 @@ const ButtonsAddCar = ({ temporalCart }) => {
     if (currentCart) {
       cart.quantityItems += currentCart.quantityItems;
       cart.total += currentCart.total;
+      cart.items = [
+        ...cart.items,
+        ...currentCart.items
+      ]
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
