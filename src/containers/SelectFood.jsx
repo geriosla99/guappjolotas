@@ -123,6 +123,7 @@ class SelectFood extends Component {
           foods={this.state.foods} 
           selectFood={this.food}
           isLoaded={flavorsLoaded}
+          temporalCart= {this.state.temporalCart}
           setTemporalCartFlavor = {this.setTemporalCartFlavor}
         />
         {!isLoaded && (
