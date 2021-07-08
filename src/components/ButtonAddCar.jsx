@@ -6,7 +6,7 @@ class ButtonsAddCar extends Component {
    render() {
       return (
          <DivButtonAdd>
-            <ButtonAdd>agregar 1 al carrito </ButtonAdd>
+            <ButtonAdd>agregar {} al carrito </ButtonAdd>
          </DivButtonAdd>
       )
    }
