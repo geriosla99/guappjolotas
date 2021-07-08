@@ -17,6 +17,12 @@ export const DivButtonAdd = styled.div`
 `
 
 export const ButtonAdd = styled.div`
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-content: center;
+   justify-content: space-around;
+   align-items: center;
    padding: 24px;
    background: #FA4A0C;
    border-radius: 40px;

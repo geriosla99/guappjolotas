@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { DivBackCar, HoverButtons } from './Back-Carshop/ButtonsBsStyles'
 import { useHistory } from "react-router-dom";
 
 const ButtonsBS = (props) => {
 
+   
    const history = useHistory();
    const handleClick = (e) => {
       history.goBack()

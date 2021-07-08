@@ -6,7 +6,7 @@ import SliderFoods from '../components/SliderFoods';
 import Combo from '../components/Combo';
 import Flavors from "../components/Flavors";
 import ButtonsAddCar from '../components/ButtonAddCar'
-import ButtonBS from '../components/ButtonsBS'
+import ButtonsBS from '../components/ButtonsBS'
 
 const data = new Data();
 
@@ -127,7 +127,7 @@ class SelectFood extends Component {
                   isLoaded={isLoaded}
                   handler={this.getComboSelected} />
             }
-            <ButtonsAddCar />
+            <ButtonsAddCar temporalCart={this.state.temporalCart} />
          </>
       )
    }

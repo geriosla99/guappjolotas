@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
-import { ButtonAdd, DivButtonAdd} from './Back-Carshop/ButtonsBsStyles'
+import React from 'react'
+import { ButtonAdd, DivButtonAdd } from './Back-Carshop/ButtonsBsStyles'
 
-class ButtonsAddCar extends Component {
+const ButtonsAddCar = ({temporalCart}) => {
 
-   render() {
-      return (
-         <DivButtonAdd>
-            <ButtonAdd>agregar {} al carrito </ButtonAdd>
-         </DivButtonAdd>
-      )
-   }
+   
+
+   return (
+      <DivButtonAdd>
+         <ButtonAdd>Agregar {temporalCart.quantity} al carrito  <div>${temporalCart.subtotal}.00</div> 
+         </ButtonAdd>
+      </DivButtonAdd>
+   )
+
 }
 
 export default ButtonsAddCar
