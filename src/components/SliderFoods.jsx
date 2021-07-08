@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {Title, Price} from './slider/SliderStyles'
 import QuantityDetails from './QuantityDetails';
 // Import Swiper React components
@@ -40,7 +40,13 @@ const SliderFoods = ({foods, setTemporalCart, setQuantityTemporalCart}) => {
         }
     }
 
+    const firstRender = useRef(true);
+    
     useEffect(() => {
+        if (firstRender.current) {
+            firstRender.current = false;
+            return;
+        }
         setQuantityTemporalCart(quantity);
     }, [quantity])
     
