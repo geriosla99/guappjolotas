@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import SingleFlavor from './Flavor/SingleFlavor';
 import { FlavorContainer, FlavorTitle } from './Flavor/Flavor';
 
-const Flavors = ({ foods, selectFood, isLoaded, setTemporalCart }) => {
+const Flavors = ({ foods, selectFood, isLoaded, setTemporalCartFlavor, temporalCart }) => {
   let initialState = Array.from(foods, (item) => {
     return { flavor: item.flavor, isSelected: false };
   });
@@ -22,13 +22,12 @@ const Flavors = ({ foods, selectFood, isLoaded, setTemporalCart }) => {
     const { id } = e.target;
     const items = Array.from(selectedFlavor);
     const isSelectedFlavor = foods.find((food) => food.flavor === id);
-    console.log(isSelectedFlavor);
     const newCart = {
       item: isSelectedFlavor,
-      quantity: 1,
+      quantity: temporalCart.quantity,
       subtotal: 1* isSelectedFlavor.price
   }
-  setTemporalCart(newCart);
+  setTemporalCartFlavor(newCart);
     for (const item of items) {
       item.isSelected = item.flavor === id ? true : false;
     }

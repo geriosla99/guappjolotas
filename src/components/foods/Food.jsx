@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ContainerFood, ImageFoodMain, DescriptionFood, FlavorFood, PriceFood } from './FoodStyles';
+import { LinkFoodContainer, ContainerFood, ImageFoodMain, DescriptionFood, FlavorFood, PriceFood } from './FoodStyles';
 
 const handleClick = () => {
   console.log('object');
@@ -8,7 +8,7 @@ const handleClick = () => {
 
 const Food = ({ food }) => {
   return (
-    <div>
+    <LinkFoodContainer>
       <Link to={`/${food.category}/${food.flavor}`} style={{ textDecoration: 'none' }}>
         <ContainerFood onClick={handleClick}>
           <ImageFoodMain src={food.image_main} alt={food.flavor} />
@@ -18,7 +18,7 @@ const Food = ({ food }) => {
           </DescriptionFood>
         </ContainerFood>
       </Link>
-    </div>
+    </LinkFoodContainer>
   );
 };
 

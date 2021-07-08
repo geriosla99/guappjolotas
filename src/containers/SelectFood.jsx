@@ -90,8 +90,19 @@ class SelectFood extends Component {
     this.setState({temporalCart: {...this.state.temporalCart, item:value.item} }, () => {console.log(this.state.temporalCart)});
   }
 
+  setTemporalCartFlavor = (value) => {
+    this.setState({temporalCart: {...this.state.temporalCart, item:value.item} }, () => {
+      console.log(this.state.temporalCart);
+    });
+    const listFoods = this.state.foods;
+    const index = listFoods.indexOf(value.item);
+    const newArray = this.moveArray(listFoods, index, 0);
+    this.setState({foods: newArray});
+  }
+
   setQuantityTemporalCart = (quantity) => {
-    this.setState({temporalCart: {...this.state.temporalCart, quantity:quantity} }, () => {console.log(this.state.temporalCart)});
+    let itemPrice = this.state.temporalCart.item.price ? this.state.temporalCart.item.price : 0;
+    this.setState({temporalCart: {...this.state.temporalCart, quantity:quantity, subtotal: itemPrice * quantity} }, () => {console.log(this.state.temporalCart)});
   }
   
   
@@ -112,7 +123,8 @@ class SelectFood extends Component {
           foods={this.state.foods} 
           selectFood={this.food}
           isLoaded={flavorsLoaded}
-          setTemporalCart = {this.setTemporalCart}
+          temporalCart= {this.state.temporalCart}
+          setTemporalCartFlavor = {this.setTemporalCartFlavor}
         />
         {!isLoaded && (
           <span>Cargando...</span>
