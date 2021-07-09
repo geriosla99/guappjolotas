@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    opacity: ${props => props.showModal ? 0.3 : 1}
+    opacity: ${props => props.showModal ? 0.3 : 1};
 `;
 
 export const ButtonBack = styled.img`
