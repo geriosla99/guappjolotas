@@ -6,9 +6,12 @@ export const FlavorContainer = styled.div`
     align-items: center;
     grid-template-columns: repeat(3,1fr);
     row-gap: 48px;
-    column-gap: 60px;
+    column-gap: 45px;
     max-width: 700px;
     margin: 0 auto;
+    @media (min-width: 640px){
+      column-gap: 60px;
+  }
 `;
 
 export const OpacityFlavor = styled.img`

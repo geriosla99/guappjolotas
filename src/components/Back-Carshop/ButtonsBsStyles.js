@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DivBackCar = styled.div`
    display: flex;
-   justify-content: space-around;
+   justify-content: space-between;
 `
 export const HoverButtons = styled.img`
    &:hover{
