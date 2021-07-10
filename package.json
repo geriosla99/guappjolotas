@@ -44,7 +44,8 @@
     "whitelist": [
       "PUBLIC_KEY",
       "URL_SERVER",
-      "URL_PROJECT"
+      "URL_PROJECT",
+      "URL_API"
     ]
   }
 }
