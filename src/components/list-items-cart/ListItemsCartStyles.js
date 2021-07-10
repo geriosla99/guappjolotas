@@ -41,6 +41,7 @@ export const ContainerItem = styled.div`
     align-items: center;
     margin: 16px 0px;
     cursor: pointer;
+    width: 100%;
 `;
 
 export const GroupItem = styled.div`
@@ -83,4 +84,17 @@ export const SubtotalItem = styled.span`
     font-size: 14px;
     line-height: 17px;
     color: #FA4A0C;
+`;
+
+export const ItemDeleteContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const DeleteIcon = styled.i`
+    color: #a8a7a7;
+    margin-left: 10px;
+    font-weight: 600;
+    cursor: pointer;
 `;

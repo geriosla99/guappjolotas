@@ -20,8 +20,8 @@ const Cart = () => {
    const [active, setActive] = useState(false);
    const [showModal, setShowModal] = useState(false);
    const [dataModal, setDatamodal] = useState({});
-
    const cartLocal = JSON.parse(localStorage.getItem('cart'));
+   const [cartState, setCartState] = useState(cartLocal);
    let value = cartLocal ? true : false;
 
    useEffect(() => {
@@ -51,9 +51,11 @@ const Cart = () => {
             />
                :
                <ListItemsCart
-                  cart={cartLocal}
                   setShowModal={setShowModal}
                   setDatamodal={setDatamodal}
+                  setActive={setActive}
+                  cartState={cartState}
+                  setCartState={setCartState}
                />
             }
 
