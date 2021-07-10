@@ -17,7 +17,6 @@ const FormLogin = ({setIsLogged}) => {
       } else {
          alert('usuario o contraseña incorrectas')
       }
-      console.log(user)
    }
 
    const handleChange = ({ target }) => {
@@ -28,16 +27,17 @@ const FormLogin = ({setIsLogged}) => {
    }
 
    const handleRegister = () => {
-      setIsLogin(!isLogin)
+      setIsLogin(!isLogin);
    }
 
    const handleSubmitRegister = (e) => {
       e.preventDefault();
       //encriptar contraseña btoa
-      dataForm.password = btoa(dataForm.password)
-      users.push(dataForm)
-      localStorage.setItem('users', JSON.stringify(users))
-      setDataForm({ email: '', password: '', name: '' })
+      dataForm.password = btoa(dataForm.password);
+      users.push(dataForm);
+      localStorage.setItem('users', JSON.stringify(users));
+      setDataForm({ email: '', password: '', name: '' });
+      setIsLogged(true);
    }
 
    return (

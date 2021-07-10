@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import { flushSync } from 'react-dom';
-import { Link } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components';
 import FormLogin from '../components/FormLogin';
 import Pay from '../components/Pay';
