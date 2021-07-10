@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 import env from "react-dotenv";
 import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe(env.PUBLIC_KEY);
 
 const Pay = () => {
-
    const addPayment = async () => {
+      const stripePromise = loadStripe(env.PUBLIC_KEY);
       const cart = await JSON.parse(localStorage.getItem('cart'))
       const products = cart.items;
       const productsObject = { products }
@@ -18,7 +17,7 @@ const Pay = () => {
          },
       });
       const session = await response.json();
-      const result = await stripe.redirectToCheckout({
+      await stripe.redirectToCheckout({
          sessionId: session.id,
      });
    }

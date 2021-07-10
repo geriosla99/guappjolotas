@@ -5,8 +5,8 @@ import Data from '../db/Data';
 import SliderFoods from '../components/SliderFoods';
 import Combo from '../components/Combo';
 import Flavors from "../components/Flavors";
-import ButtonsAddCar from '../components/ButtonAddCar'
-import ButtonsBS from '../components/ButtonsBS'
+import ButtonsAddCar from '../components/ButtonAddCar';
+import ButtonsBS from '../components/ButtonsBS';
 
 const data = new Data();
 
@@ -42,7 +42,7 @@ class SelectFood extends Component {
             subtotal: 1 * food.price,
             additions: {},
          }
-         this.setState({ temporalCart: value }, () => { console.log(this.state.temporalCart) });
+         this.setState({ temporalCart: value });
       })
    }
 
@@ -87,21 +87,19 @@ class SelectFood extends Component {
             ...this.state.temporalCart, additions: param,
             subtotal: Object.keys(param).length === 0 ? subtotalEmpty : subtotalEmpty + param.price
          }
-      }, () => { console.log(this.state.temporalCart) })
+      })
    }
    setTemporalCart = (value) => {
-      this.setState({ temporalCart: { ...this.state.temporalCart, item: value.item } }, () => { console.log(this.state.temporalCart) });
+      this.setState({ temporalCart: { ...this.state.temporalCart, item: value.item } });
    }
 
    setQuantityTemporalCart = (quantity) => {
-      this.setState({ temporalCart: { ...this.state.temporalCart, quantity: quantity } }, () => { console.log(this.state.temporalCart) });
+      this.setState({ temporalCart: { ...this.state.temporalCart, quantity: quantity } });
    }
 
 
    setTemporalCartFlavor = (value) => {
-      this.setState({ temporalCart: { ...this.state.temporalCart, item: value.item } }, () => {
-         console.log(this.state.temporalCart);
-      });
+      this.setState({ temporalCart: { ...this.state.temporalCart, item: value.item } });
       const listFoods = this.state.foods;
       const index = listFoods.indexOf(value.item);
       const newArray = this.moveArray(listFoods, index, 0);
@@ -110,7 +108,7 @@ class SelectFood extends Component {
 
    setQuantityTemporalCart = (quantity) => {
       let itemPrice = this.state.temporalCart.item.price ? this.state.temporalCart.item.price : 0;
-      this.setState({ temporalCart: { ...this.state.temporalCart, quantity: quantity, subtotal: itemPrice * quantity } }, () => { console.log(this.state.temporalCart) });
+      this.setState({ temporalCart: { ...this.state.temporalCart, quantity: quantity, subtotal: itemPrice * quantity } });
    }
 
 

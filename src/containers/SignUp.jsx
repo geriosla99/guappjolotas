@@ -25,16 +25,13 @@ const SignUp = (props) => {
    let existSession = session ? true : false;
    const [isLogged, setIsLogged] = useState(existSession)
 
-   console.log(isLogged)
-   console.log(props.location.actionPay)
-
    return (
       <>
          <GlobalStyle />
          <ButtonBack src="https://i.imgur.com/usmRDrf.png" alt="" onClick={handleClick} />
          {
             !isLogged ? <FormLogin setIsLogged={setIsLogged} /> 
-            : props.location.actionPay ? <Pay /> : <h1>vamo a mi perfil</h1>
+            : props.location.actionPay ? <Pay /> : <h1>Mi Perfil</h1>
          }
          
       </>

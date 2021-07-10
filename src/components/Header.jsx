@@ -6,7 +6,6 @@ const Header = (props) => {
   if (props.visible) {
 
       const handleClick = ()=>{
-        console.log('yendo a carrito');
         props.changeVisible(false);
       }
 

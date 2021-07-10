@@ -30,8 +30,7 @@ const Cart = () => {
 
    const history = useHistory();
    const handleClick = (e) => {
-      history.goBack()
-      console.log('estoy devolviendome')
+      history.goBack();
    }
 
    return (
