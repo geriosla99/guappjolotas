@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Input, Label, InputGroup, Submit, ButtonSecondary } from './form-login/FormLoginStyle'
+import { Form, Input, Label, InputGroup, Submit, ButtonSecondary, LogoImg, FormContainer } from './form-login/FormLoginStyle'
 
 const FormLogin = ({setIsLogged}) => {
 
@@ -41,10 +41,11 @@ const FormLogin = ({setIsLogged}) => {
    }
 
    return (
-      <div>
+      <FormContainer>
          {
             isLogin ?
                <Form onSubmit={handleSubmit}>
+                  <LogoImg src="https://i.imgur.com/fRn5q1r.png" alt="logo" />
                   <InputGroup>
                      <Label
                         htmlFor='email'
@@ -80,6 +81,7 @@ const FormLogin = ({setIsLogged}) => {
                </Form>
                :
                <Form onSubmit={handleSubmitRegister}>
+                  <LogoImg src="https://i.imgur.com/fRn5q1r.png" alt="logo" />
                   <InputGroup>
                      <Label
                         htmlFor='name'
@@ -128,7 +130,7 @@ const FormLogin = ({setIsLogged}) => {
                   >Iniciar Sesión</ButtonSecondary>
                </Form>
          }
-      </div>
+      </FormContainer>
    )
 }
 

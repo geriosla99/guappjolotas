@@ -1,15 +1,31 @@
 import styled from "styled-components";
 
+export const FormContainer = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: calc(100vw - 40px);
+   height: calc(100vh - 40px);
+`;
+
 export const InputGroup = styled.div`
    margin-bottom: 20px;
+   width: 100%;
 `
 
 export const Form = styled.form`
-   width: 250px;
+   width: 70vw;
+   max-width: 400px;
+   padding: 30px;
    margin: 0 auto;
+   background-color: #FFFFFF;
+   border-radius: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 `
 export const Input = styled.input`
-   background-color : #FFF;
+   background-color : #F2F2F2;
    outline: none;
    padding: 16px;
    font-size: 17px;
@@ -52,3 +68,7 @@ export const ButtonSecondary = styled.span`
    margin-top: 16px;
    display: block;
 `
+
+export const LogoImg = styled.img`
+   margin-bottom:25px;
+`;

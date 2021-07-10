@@ -7,6 +7,8 @@ export const Container = styled.div`
 export const ButtonBack = styled.img`
     display: flex;
     cursor: pointer;
+    width: 24px;
+    height: 24px;
 `;
 
 export const ShoppingCart = styled.img`
