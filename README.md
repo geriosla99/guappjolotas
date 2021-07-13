@@ -24,3 +24,4 @@ Puedes verlo [aquí](https://guappjalotas.netlify.app/#/).
 ## 🌟 Autores
 
 - **Malena Ramírez Uribe** - [@Malena-Ramirez](https://github.com/Malena-Ramirez)
+- **Mailer Martínez Ballesta** - [@Mhispanos](https://github.com/hispanos)
