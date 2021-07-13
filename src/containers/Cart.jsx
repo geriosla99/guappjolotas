@@ -72,7 +72,7 @@ const Cart = () => {
             </ContainerButton>
          </Container>
          {
-            showModal ? <Modal value={dataModal} setShowModal={setShowModal} /> : null
+            showModal ? <Modal value={dataModal} setShowModal={setShowModal} setCartState={setCartState} /> : null
          }
       </>
    )

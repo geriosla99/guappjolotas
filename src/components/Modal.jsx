@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ModalDiv, ContainerModal, ImageMain, Title, Subtotal, BtnUpdate, BtnCancel } from "./modal/ModalStyles";
 import QuantityDetails from './QuantityDetails';
 
-const Modal = ({value, setShowModal}) => {
+const Modal = ({value, setShowModal, setCartState}) => {
 
     const [quantity, setQuantity] = useState(value.quantity);
 
@@ -34,7 +34,8 @@ const Modal = ({value, setShowModal}) => {
             cart.quantityItems = quantityItems;
             cart.total = total;
             //Save at localStorage
-            localStorage.setItem('cart', JSON.stringify(cart))
+            localStorage.setItem('cart', JSON.stringify(cart));
+            setCartState(cart);
             //Close Modal
             setShowModal(false);
         }

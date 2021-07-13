@@ -5,7 +5,7 @@ import { LinkFoodContainer, ContainerFood, ImageFoodMain, DescriptionFood, Flavo
 const Food = ({ food }) => {
   return (
     <LinkFoodContainer>
-      <Link to={`/${food.category}/${food.flavor}`} style={{ textDecoration: 'none' }}>
+      <Link to={{pathname: `/${food.category}/${food.flavor}`, category: food.category, food: food }} style={{ textDecoration: 'none' }}>
         <ContainerFood>
           <ImageFoodMain src={food.image_main} alt={food.flavor} />
           <DescriptionFood>
