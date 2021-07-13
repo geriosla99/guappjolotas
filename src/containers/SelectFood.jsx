@@ -18,8 +18,9 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 const SelectFood = (props) =>{
-   const categoryId = props.location.category || props.match.params.category;
-   const food = props.location.food || props.match.params.food;
+   console.log(props);
+   const categoryId = props.match.params.category;
+   const food = props.match.params.food;
    const getComboCategory = (categoryId) => {
       const comboCategories = {
          1: 2,
