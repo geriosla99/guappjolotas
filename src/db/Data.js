@@ -1,8 +1,7 @@
-import env from "react-dotenv";
 export default class Data {
 
     constructor() {
-        this.URI = env.URL_API;
+        this.URI = "https://my-json-server.typicode.com/hispanos/db-guappjolotas/";
     }
 
     async getFoodsByCategory(categoryId) {
