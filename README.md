@@ -25,3 +25,4 @@ Puedes verlo [aquí](https://guappjalotas.netlify.app/#/).
 - **Malena Ramírez Uribe** - [@Malena-Ramirez](https://github.com/Malena-Ramirez)
 - **Mailer Martínez Ballesta** - [@hispanos](https://github.com/hispanos)
 - **Jose Manuel Osorio perez** - [@jmblack15](https://github.com/jmblack15)
+- **Geraldine Rios** - [@geriosla99](https://github.com/geriosla99)
