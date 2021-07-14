@@ -1,8 +1,8 @@
-# 🌮 App Guappjolotas
+# 🌮 App Guajolotas
 
 Crea una nueva historia.
 
-Adoptar puede ser una de las experiencias más grandiosas de tu vida, donde compartirás bellos momentos con estos amiguitos fieles, tiernos y llenos de amor para regalar.
+Nada como una buena guajalota o un tamal para empezar tu día, acompáñalas con una buena bebida. Elige tu combo favorito en Guajapplotas.
 
 Puedes verlo [aquí](https://guappjalotas.netlify.app/#/).
 
