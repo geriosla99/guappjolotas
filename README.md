@@ -1,6 +1,5 @@
 # 🌮 App Guajolotas
 
-Crea una nueva historia.
 
 Nada como una buena guajalota o un tamal para empezar tu día, acompáñalas con una buena bebida. Elige tu combo favorito en Guajapplotas.
 
