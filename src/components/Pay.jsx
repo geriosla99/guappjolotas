@@ -4,7 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 
 const Pay = () => {
    const PUBLIC_KEY = "pk_test_51JBNpCINIjbITmoIKTTwr3xA0rwltkD1zJb5A9UjNZqPtJ6kjc7pgOJ4d0QZC95CWuyMEsYHT2GJEkDG9AEJOXvu00XLTUwucI";
-   const URL_SERVER = "https://intense-sierra-29064.herokuapp.com";
+   const URL_SERVER = "https://guappjolotas-sprint.herokuapp.com";
    const addPayment = async () => {
       const stripePromise = loadStripe(PUBLIC_KEY);
       const cart = await JSON.parse(localStorage.getItem('cart'))
